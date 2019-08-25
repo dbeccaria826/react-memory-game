@@ -7,11 +7,28 @@ import zerg from '../zerg.json'
 
 class Game extends Component {
     state = {
-        zerg
+        zerg,
+        clicked: []
+    }
+    //Methods for changing state go here
+    shuffleCards = () => {
+        const shuffle = array => 
+        [...Array(array.length)]
+        .map((...args) => Math.floor(Math.random() * (args[1] + 1)))
+        .reduce( (a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
+    
+        for (let i=0; i<1; i+=1)
+        console.log((shuffle(zerg)));
     }
     
+    clickHandler = (id) => {
+        if(this.state.clicked.indexOf(id) === -1) {
+            console.log(this.setState({clicked: this.state.clicked.concat(id)}))
+        }
+        console.log(this.state.clicked)
+    }
     render () {
-        console.log(this.state.zerg[0])
+        console.log(zerg)
         return (
             <Wrapper>
                 <Row className="row center">
@@ -19,7 +36,11 @@ class Game extends Component {
                 <Col className="col s6 offset-s3">
                     {this.state.zerg.map(zerg => (
                    <Card 
+                    key={zerg.id}
+                    id={zerg.id}
                     image={zerg.image}
+                    click={() => this.clickHandler(zerg.id)}
+                    shuffle={() => this.shuffleCards()}
                     />
                 ))}
                     </Col>
