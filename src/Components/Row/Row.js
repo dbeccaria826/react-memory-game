@@ -1,8 +1,16 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const Row = styled.div`
+    color:#008000;
+`
 
 const row = (props) => {
     return (
-        <div className="row" {...props} />
+        <Row>
+            <div className="row" {...props} />
+        </Row>
+        
 
         
     )

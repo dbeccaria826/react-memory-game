@@ -1,9 +1,18 @@
 import React from 'react';
+import styled from 'styled-components'
 
-const aux = (props) => {
+const Aux = styled.div`
+    background: black;
+    
+`
+
+const wrapper = (props) => {
     return (
-        <div>{props.children}</div>
+        <Aux>
+            <div>{props.children}</div>
+        </Aux>
+        
     )
 }
 
-export default aux;
+export default wrapper;
