@@ -12,23 +12,25 @@ class Game extends Component {
     }
     //Methods for changing state go here
     shuffleCards = () => {
-        const shuffle = array => 
-        [...Array(array.length)]
-        .map((...args) => Math.floor(Math.random() * (args[1] + 1)))
-        .reduce( (a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
-    
-        for (let i=0; i<1; i+=1)
-        console.log((shuffle(zerg)));
+        const shuffle = (array) => 
+            [...Array(array.length)]
+            .map((...args) => Math.floor(Math.random() * (args[1] + 1)))
+            .reduce( (a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
+            
+            for (let i=0; i<1; i+=1)
+            shuffle(zerg)
     }
     
     clickHandler = (id) => {
         if(this.state.clicked.indexOf(id) === -1) {
-            console.log(this.setState({clicked: this.state.clicked.concat(id)}))
+           this.setState({clicked: this.state.clicked.concat(id)})
         }
         console.log(this.state.clicked)
+        this.shuffleCards(zerg)
     }
+    
     render () {
-        console.log(zerg)
+        console.log(this.state.zerg)
         return (
             <Wrapper>
                 <Row className="row center">
@@ -40,7 +42,7 @@ class Game extends Component {
                     id={zerg.id}
                     image={zerg.image}
                     click={() => this.clickHandler(zerg.id)}
-                    shuffle={() => this.shuffleCards()}
+                    
                     />
                 ))}
                     </Col>
