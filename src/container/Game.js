@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Col from '../Components/Col/Col'
 import Row from '../Components/Row/Row'
-import Aux from '../hoc/aux'
+import Aux from '../Components/Wrapper/Wrapper'
 import Card from '../Components/Zerg/Zerg'
 import zerg from '../zerg.json'
 
