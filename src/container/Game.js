@@ -4,35 +4,42 @@ import Row from '../Components/Row/Row'
 import Wrapper from '../Components/Wrapper/Wrapper'
 import Card from '../Components/Zerg/Zerg'
 import Nav from '../Components/Nav/Nav'
-
 import zerg from '../zerg.json'
 
 
-
+const clickMessage = 'Click on a Zerg Unit once to start the game'
 
 class Game extends Component {
     state = {
         zerg,
         count: 0,
         maxCount: 0,
-        clicked: []
+        clicked: [],
+        clickMessage
     }
     //Methods for changing state go here
     shuffleCards = () => {
         const shuffle = (array) => 
+
         [...Array(array.length)]
+
         .map((...args) => Math.floor(Math.random() * (args[1] + 1)))
-        .reduce( (a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
+
+        .reduce((a, rv, i) => ([a[i], a[rv]] = [a[rv], a[i]]) && a, array);
         
         for (let i=0; i<1; i+=1)
+
         shuffle(zerg)
     }
     
     clickHandler = (id) => {
         if(this.state.clicked.indexOf(id) === -1) {
-           this.setState({clicked: this.state.clicked.concat(id)})
-           this.increaseCountHandler()
+
+            this.setState({clicked: this.state.clicked.concat(id)}) 
+            this.increaseCountHandler()
+            
         } else {
+
             this.resetCards()
         }
         
@@ -68,22 +75,21 @@ class Game extends Component {
         console.log(this.state.zerg)
         return (
            <div>
-                 <Nav score={this.state.count} currentScore={this.state.maxCount}/>
+            <Nav score={this.state.count} currentScore={this.state.maxCount} />
            
            <Wrapper>
               
                <Row className="row center">
             
                <Col className="col s6 offset-s3">
-                   {this.state.zerg.map(props => (
+                {this.state.zerg.map(props => (
                   <Card
                    key={props.id}
                    id={props.id}
                    image={props.image}
                    click={() => this.clickHandler(props.id)}
-                   
                    />
-               ))}
+                ))}
                    </Col>
                </Row>
              

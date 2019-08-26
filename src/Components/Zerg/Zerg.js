@@ -8,7 +8,6 @@ const Card = styled.div`
   display: inline-flex;
   margin: 5px;
   background: black;
- 
 `
 
 const card  = (props) => {

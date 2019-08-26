@@ -10,8 +10,9 @@ const nav  = (props) => {
     <div className="col s12">
       <div className="card black">
         <div className="card-content green-text">
-          <span className="card-title">Click on the Zerg Units</span>
-          <p></p>
+          <span className="card-title">Zerg Unit Guessing Game</span>
+          <p>Click on the units below once to begin the game <br/>
+          Clicking on the same unit twice will end the game.</p>
         </div>
         <div className="card-action">
           <p className="green-text">SCORE: {props.score}</p>

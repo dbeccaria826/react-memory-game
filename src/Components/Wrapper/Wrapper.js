@@ -9,8 +9,10 @@ const Aux = styled.div`
 const wrapper = (props) => {
     return (
         <Aux>
-            <div>{props.children}</div>
+             <div>{props.children}</div>
         </Aux>
+           
+       
         
     )
 }
