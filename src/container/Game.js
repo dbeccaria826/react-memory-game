@@ -30,6 +30,7 @@ class Game extends Component {
         for (let i=0; i<1; i+=1)
 
         shuffle(zerg)
+        console.log(shuffle(zerg))
     }
     
     clickHandler = (id) => {
@@ -37,7 +38,8 @@ class Game extends Component {
 
             this.setState({clicked: this.state.clicked.concat(id)}) 
             this.increaseCountHandler()
-            
+            console.log(id)
+            console.log(this.state.clicked)
         } else {
 
             this.resetCards()
@@ -72,7 +74,7 @@ class Game extends Component {
     }
 
     render () {
-        console.log(this.state.zerg)
+        
         return (
            <div>
             <Nav score={this.state.count} currentScore={this.state.maxCount} />
